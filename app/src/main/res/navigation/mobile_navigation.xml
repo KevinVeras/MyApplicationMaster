@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.myapplicationapp.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_mascota"
+        android:name="com.example.myapplicationapp.ui.mascota.MascotaFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_mascota" />
+
+    <fragment
+        android:id="@+id/nav_medico"
+        android:name="com.example.myapplicationapp.ui.medico.MedicoFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_medico" />
+    <fragment
+        android:id="@+id/nav_vacunas"
+        android:name="com.example.myapplicationapp.ui.vacunas.VacunasFragment"
+        android:label="@string/menu_vacunas"
+        tools:layout="@layout/fragment_vacunas" />
+
+
+    <fragment
+        android:id="@+id/nav_Horario"
+        android:name="com.example.myapplicationapp.ui.dispensador.DashboardFragment"
+        android:label="@string/menu_dispensador"
+        tools:layout="@layout/fragment_dashboard" />
+
+</navigation>

@@ -1,0 +1,1187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.vacunas.VacunasFragment"
+    android:layout_height="match_parent"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_margin="10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/userbt"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:src="@drawable/vacunas"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vacunas"
+                android:textSize="36sp"
+                android:textColor="@color/black"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintVertical_bias="0"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userbt"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="26dp"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg2">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="40dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="RABIA"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="Se contagia por la saliva infecada"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="30dp"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="12 semanas"
+                                            android:textColor="@color/black"
+                                            android:layout_marginLeft="30dp"
+                                            android:layout_marginRight="30dp"
+                                            android:layout_marginTop="10dp"
+                                            android:textSize="20dp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+                                                android:id="@+id/imgvad"
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:src="@drawable/duno"
+                                                android:layout_alignParentRight="true"/>
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lobster"
+                                        android:text="1 año"
+                                        android:textColor="@color/black"
+
+                                        android:textSize="20dp" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/lobster"
+
+                                        android:text="2 años"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp"
+
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lobster"
+                                        android:text="3 años"
+                                        android:textColor="@color/black"
+
+                                        android:textSize="20dp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imgvac"
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:src="@drawable/vacuna" />
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="26dp"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg2">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="40dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="LEPTOSPIROSIS"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="Se contagia a través de la orina contaminada"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+
+
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="30dp"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="8 semanas"
+                                            android:textColor="@color/black"
+                                            android:textSize="20dp"
+                                            android:layout_marginLeft="30dp"
+                                            android:layout_marginRight="30dp"
+                                            android:layout_marginTop="10dp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+                                                android:id="@+id/imgvaL"
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+
+                                                android:src="@drawable/duno" />
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="12 semanas"
+                                            android:textColor="@color/black"
+                                            android:textSize="20dp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@drawable/iconac" />
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imgvaLabc"
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:src="@drawable/vacuna" />
+
+
+
+                        </RelativeLayout>
+
+
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textSize="27dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/lobster"
+
+                                android:text="Anualmente"/>
+
+                            <ImageView
+
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/iconac" />
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="26dp"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg2">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="40dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="DISTEMPER"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="Se contagia por secreciones respiratorias"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+
+
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="30dp"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="6-8 semanas"
+                                            android:textColor="@color/black"
+                                            android:textSize="20dp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@drawable/duno" />
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="12-16 semanas"
+                                            android:textColor="@color/black"
+                                            android:textSize="20dp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@drawable/iconac" />
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:src="@drawable/vacuna" />
+
+
+
+                        </RelativeLayout>
+
+
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textSize="27dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/lobster"
+
+                                android:text="Cada 3 años"/>
+
+                            <ImageView
+
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/iconac" />
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="26dp"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg2">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="40dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="PARVOVIRUS"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="Se contagia por heces contaminadas"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+
+
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="30dp"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="8-16 semanas"
+                                            android:textColor="@color/black"
+                                            android:textSize="20dp"
+                                            android:layout_marginLeft="30dp"
+                                            android:layout_marginRight="30dp"
+                                            android:layout_marginTop="10dp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@drawable/duno" />
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="12 meses"
+                                            android:textColor="@color/black"
+                                            android:textSize="27dp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@drawable/iconac" />
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:src="@drawable/vacuna" />
+
+
+
+                        </RelativeLayout>
+
+
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textSize="20dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/lobster"
+
+                                android:text="Cada 3 años"/>
+
+                            <ImageView
+
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/iconac" />
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="26dp"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg2">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="40dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="HAPATITIS"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lobster"
+
+                            android:text="Se contagia por contacto con el enfermo"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+
+
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="30dp"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="8-16 semanas"
+                                            android:textColor="@color/black"
+                                            android:textSize="20dp"
+                                            android:layout_marginLeft="30dp"
+                                            android:layout_marginRight="30dp"
+                                            android:layout_marginTop="10dp"
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@drawable/duno" />
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        app:cardElevation="5dp"
+                                        app:cardCornerRadius="20dp"
+
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/lobster"
+                                            android:gravity="center"
+                                            android:text="12 meses"
+                                            android:textColor="@color/black"
+                                            android:textSize="20dp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <ImageView
+
+                                                android:layout_width="90dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@drawable/iconac" />
+                                        </RelativeLayout>
+
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:src="@drawable/vacuna" />
+
+
+
+                        </RelativeLayout>
+
+
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="26dp"
+
+                        android:layout_margin="2dp">
+
+
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textSize="27dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/lobster"
+
+                                android:text="Anualmente"/>
+
+                            <ImageView
+
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/iconac" />
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

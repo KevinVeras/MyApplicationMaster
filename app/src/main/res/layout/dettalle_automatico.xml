@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dispensador Modo Automatico"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:fontFamily="@font/gloria"
+        android:textColor="#009688"
+        />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/dispen"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/Modautomatico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="NombreM"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#151515"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="En este modo se dispensara comida y agua de forma automatica cada vez que la mascota se acerque al dispensador "
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#151515"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <Button
+        android:id="@+id/btnModAuto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:background="@drawable/rounded"
+        android:layout_gravity="center"/>
+
+
+
+
+</LinearLayout>
