@@ -1,5 +1,8 @@
 package com.example.myapplicationapp.ui.vacunas;
 
+import android.location.Address;
+
+import android.location.Geocoder;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,38 +10,36 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.example.myapplicationapp.R;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link VacunasFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class VacunasFragment extends Fragment {
+import java.io.IOException;
+import java.util.List;
+
+public class VacunasFragment extends Fragment implements OnMapReadyCallback {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private SearchView mSearchView;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private GoogleMap map;
 
     public VacunasFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment VacunasFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static VacunasFragment newInstance(String param1, String param2) {
         VacunasFragment fragment = new VacunasFragment();
         Bundle args = new Bundle();
@@ -61,6 +62,55 @@ public class VacunasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vacunas, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_vacunas, container, false);
+
+        mSearchView = view.findViewById(R.id.sv_location);
+
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);
+
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                String location = mSearchView.getQuery().toString();
+                List<Address> addressList = null;
+
+                if (location != null || !location.equals("")) {
+                    Geocoder geocoder = new Geocoder(getContext());
+                    try {
+                        addressList = geocoder.getFromLocationName(location, 1);
+                    } catch (
+                            IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    assert addressList != null;
+
+                    for (Address address : addressList) {
+                        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                        map.addMarker(new MarkerOptions().position(latLng).title(location));
+                        map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14));
+                    }
+
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
+
+        return view;
+    }
+
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
     }
 }

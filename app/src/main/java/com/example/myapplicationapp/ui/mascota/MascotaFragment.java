@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.example.myapplicationapp.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
@@ -70,18 +72,22 @@ public class MascotaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       view=inflater.inflate(R.layout.fragment_mascota, container, false);
-        recyclerView =view.findViewById(R.id.rv);
+        view = inflater.inflate(R.layout.fragment_mascota, container, false);
+        recyclerView = view.findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        assert user != null;
         FirebaseRecyclerOptions<MainModel> options =
                 new FirebaseRecyclerOptions.Builder<MainModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("mascotag"), MainModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("mascotag").child(user.getUid()), MainModel.class)
                         .build();
-        mainAdapter=new MainAdapter(options);
+        mainAdapter = new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
 
-        floatingActionButton=view.findViewById(R.id.floatingActionButton);
+        floatingActionButton = view.findViewById(R.id.floatingActionButton);
 
         // cambiar de frgament
         Fragment newFragment = new AddFragment();
@@ -89,7 +95,7 @@ public class MascotaFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getActivity(),"Agregar reg",Toast.LENGTH_SHORT).show();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frmas,newFragment).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frmas, newFragment).commit();
 
                 floatingActionButton.setVisibility(View.GONE);
                 //getActivity().getSupportFragmentManager().beginTransaction().remove(newFragment).commit();
@@ -100,11 +106,13 @@ public class MascotaFragment extends Fragment {
 
         return view;
     }
+
     @Override
     public void onStart() {
         super.onStart();
         mainAdapter.startListening();
     }
+
     @Override
     public void onStop() {
         super.onStop();

@@ -21,6 +21,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -28,9 +30,10 @@ import com.orhanobut.dialogplus.ViewHolder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.myViewHolder>{
+public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.myViewHolder> {
 
-    CheckBox VrabiaEdit,VdistemperEdit,VPoarvoEdit;
+    CheckBox VrabiaEdit, VdistemperEdit, VPoarvoEdit;
+
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
@@ -42,7 +45,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder,final int position, @NonNull MainModel model) {
+    protected void onBindViewHolder(@NonNull myViewHolder holder, final int position, @NonNull MainModel model) {
 
         holder.nombre.setText(model.getNombre());
         // holder.tipo.setText(model.getTipo());
@@ -53,27 +56,26 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
             @Override
             public void onClick(View v) {
 
-                final DialogPlus dialogPlus=DialogPlus.newDialog(holder.Img.getContext())
+                final DialogPlus dialogPlus = DialogPlus.newDialog(holder.Img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.detalle_mascota))
-                        .setExpanded(true,1700)
+                        .setExpanded(true, 1700)
                         .create();
                 // dialogPlus.show();
 
 
-                View view=dialogPlus.getHolderView();
-                TextView nombreM=view.findViewById(R.id.nombremascota);
-                TextView edadM=view.findViewById(R.id.edadmascota);
+                View view = dialogPlus.getHolderView();
+                TextView nombreM = view.findViewById(R.id.nombremascota);
+                TextView edadM = view.findViewById(R.id.edadmascota);
 
 
-                TextView miniM=view.findViewById(R.id.miniM);
-                TextView grandeM=view.findViewById(R.id.grandeM);
-                TextView medianoM=view.findViewById(R.id.medianoM);
-                TextView giganteM=view.findViewById(R.id.giganteM);
+                TextView miniM = view.findViewById(R.id.miniM);
+                TextView grandeM = view.findViewById(R.id.grandeM);
+                TextView medianoM = view.findViewById(R.id.medianoM);
+                TextView giganteM = view.findViewById(R.id.giganteM);
 
-                TextView vRabiaM=view.findViewById(R.id.vRabiaM);
-                TextView vDistemperM=view.findViewById(R.id.vDistemperM);
-                TextView vParvovirusM=view.findViewById(R.id.vParvovirusM);
-
+                TextView vRabiaM = view.findViewById(R.id.vRabiaM);
+                TextView vDistemperM = view.findViewById(R.id.vDistemperM);
+                TextView vParvovirusM = view.findViewById(R.id.vParvovirusM);
 
 
                 //Button btnActualizar=view.findViewById(R.id.btnActualizar);
@@ -92,26 +94,26 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                 //vParvovirusM.setText(model.getvParvovirus());
 
 
-                if (model.getvRabia().equals("Rabia")){
+                if (model.getvRabia().equals("Rabia")) {
 
                     vRabiaM.setText(model.getvRabia());
-                }else {
+                } else {
 
                     vRabiaM.setVisibility(View.GONE);
                 }
 
-                if (model.getvDistemper().equals("Distemper")){
+                if (model.getvDistemper().equals("Distemper")) {
 
-                   vDistemperM.setText(model.getvDistemper());
-                }else {
+                    vDistemperM.setText(model.getvDistemper());
+                } else {
                     vDistemperM.setVisibility(View.GONE);
 
                 }
 
-                if (model.getvParvovirus().equals("Parvovirus")){
+                if (model.getvParvovirus().equals("Parvovirus")) {
                     vParvovirusM.setText(model.getvParvovirus());
 
-                }else {
+                } else {
 
                     vParvovirusM.setVisibility(View.GONE);
                 }
@@ -120,22 +122,21 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                 dialogPlus.show();
 
 
-
             }
         });
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final DialogPlus dialogPlus=DialogPlus.newDialog(holder.Img.getContext())
+                final DialogPlus dialogPlus = DialogPlus.newDialog(holder.Img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.editar_mascota))
-                        .setExpanded(true,1800)
+                        .setExpanded(true, 1800)
                         .create();
-               dialogPlus.show();
+                dialogPlus.show();
 
 
-                View view=dialogPlus.getHolderView();
-                EditText EditNombre=view.findViewById(R.id.nombremascotaEdit);
+                View view = dialogPlus.getHolderView();
+                EditText EditNombre = view.findViewById(R.id.nombremascotaEdit);
 
                 //EditText tipo=view.findViewById(R.id.txtTipo);
                 //EditText edad=view.findViewById(R.id.txtEdad);
@@ -146,17 +147,16 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                 TextView gigante=view.findViewById(R.id.tgigante);
 
 */
-                 VrabiaEdit=view.findViewById(R.id.vRabiaEdit);
-                 VdistemperEdit=view.findViewById(R.id.vDistemperedit);
-                 VPoarvoEdit=view.findViewById(R.id.vParvovirusEdit);
+                VrabiaEdit = view.findViewById(R.id.vRabiaEdit);
+                VdistemperEdit = view.findViewById(R.id.vDistemperedit);
+                VPoarvoEdit = view.findViewById(R.id.vParvovirusEdit);
 
-                TextView vrabia=view.findViewById(R.id.vRabiaME);
-                TextView vdistemper=view.findViewById(R.id.vDistemperME);
-                TextView vparavirus=view.findViewById(R.id.vParvovirusME);
+                TextView vrabia = view.findViewById(R.id.vRabiaME);
+                TextView vdistemper = view.findViewById(R.id.vDistemperME);
+                TextView vparavirus = view.findViewById(R.id.vParvovirusME);
 
 
-
-                Button BtnActualizar=view.findViewById(R.id.btnactualizar);
+                Button BtnActualizar = view.findViewById(R.id.btnactualizar);
 ////////////////////////////////
                 EditNombre.setText(model.getNombre());
                 /*
@@ -172,24 +172,25 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                 VdistemperEdit.setText(model.getvDistemper());
                 VPoarvoEdit.setText(model.getvParvovirus());*/
 
-                if (model.getvRabia().equals("Rabia")){
+                if (model.getvRabia().equals("Rabia")) {
                     VrabiaEdit.setChecked(true);
-                }else {
+                } else {
                     VrabiaEdit.setChecked(false);
                 }
 
-                if (model.getvDistemper().equals("Distemper")){
+                if (model.getvDistemper().equals("Distemper")) {
                     VdistemperEdit.setChecked(true);
-                }else {
+                } else {
                     VdistemperEdit.setChecked(false);
                 }
 
-                String parvo="Parvovirus";
-                if (model.getvParvovirus().equals(parvo)){
+                String parvo = "Parvovirus";
+                if (model.getvParvovirus().equals(parvo)) {
                     VPoarvoEdit.setChecked(true);
-                }else {
+                } else {
                     VPoarvoEdit.setChecked(false);
-                };
+                }
+                ;
                 //VdistemperEdit.setChecked(true);
 
                 vrabia.setText(model.getvRabia());
@@ -203,33 +204,34 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                     @Override
                     public void onClick(View v) {
                         vacunas();
-                        Map<String,Object> map=new HashMap<>();
-                        map.put("nombre",EditNombre.getText().toString());
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("nombre", EditNombre.getText().toString());
                         //map.put("tipo",tipo.getText().toString());
                         //map.put("edad",edad.getText().toString());
                         //VrabiaEdit,VdistemperEdit,VPoarvoEdit;
 
 
+                        map.put("vRabia", VrabiaEdit.getText().toString());
+                        map.put("vDistemper", VdistemperEdit.getText().toString());
+                        map.put("vParvovirus", VPoarvoEdit.getText().toString());
 
-                        map.put("vRabia",VrabiaEdit.getText().toString());
-                        map.put("vDistemper",VdistemperEdit.getText().toString());
-                        map.put("vParvovirus",VPoarvoEdit.getText().toString());
+                        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                        FirebaseUser user = mAuth.getCurrentUser();
 
-
-
-                        FirebaseDatabase.getInstance().getReference().child("mascotag").
+                        assert user != null;
+                        FirebaseDatabase.getInstance().getReference().child("mascotag").child(user.getUid()).
                                 child(getRef(position).getKey()).updateChildren(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Toast.makeText(holder.nombre.getContext(),"Datos actualizados",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(holder.nombre.getContext(), "Datos actualizados", Toast.LENGTH_SHORT).show();
                                         dialogPlus.dismiss();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(holder.nombre.getContext(),"error al mostrar",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(holder.nombre.getContext(), "error al mostrar", Toast.LENGTH_SHORT).show();
                                         dialogPlus.dismiss();
                                     }
                                 });
@@ -241,21 +243,24 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder=new AlertDialog.Builder(holder.nombre.getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.nombre.getContext());
                 builder.setTitle("Eliminar");
                 builder.setMessage("Desa elimiar a su amscota");
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseUser user = mAuth.getCurrentUser();
 
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        FirebaseDatabase.getInstance().getReference().child("mascotag")
+                        assert user != null;
+                        FirebaseDatabase.getInstance().getReference().child("mascotag").child(user.getUid())
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });
                 builder.setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(holder.nombre.getContext(),"se Cancelo",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(holder.nombre.getContext(), "se Cancelo", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.show();
@@ -263,20 +268,21 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
         });
 
     }
-    private void vacunas(){
+
+    private void vacunas() {
         //VrabiaEdit,VdistemperEdit,VPoarvoEdit;
-        if (VrabiaEdit.isChecked()==true)
+        if (VrabiaEdit.isChecked() == true)
             VrabiaEdit.setText("Rabia");
 
         else
             VrabiaEdit.setText("");
 
-        if (VdistemperEdit.isChecked()==true)
+        if (VdistemperEdit.isChecked() == true)
             VdistemperEdit.setText("Distemper");
         else
             VdistemperEdit.setText("");
 
-        if (VPoarvoEdit.isChecked()==true)
+        if (VPoarvoEdit.isChecked() == true)
             VPoarvoEdit.setText("Parvovirus");
         else
             VPoarvoEdit.setText("");
@@ -286,31 +292,31 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item,parent,false);
-        View view1=LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item,parent,false);
+        View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent, false);
         return new myViewHolder(view1);
     }
 
-    class myViewHolder extends RecyclerView.ViewHolder{
+    class myViewHolder extends RecyclerView.ViewHolder {
 
         ImageView Img;
-        TextView nombre,tipo,edad;
+        TextView nombre, tipo, edad;
 
-        Button btnEdit,btnDelete,btnActualizar,btndetalle;
+        Button btnEdit, btnDelete, btnActualizar, btndetalle;
 
         FloatingActionButton floatingActionButton;
 
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            Img=itemView.findViewById(R.id.imgM);
-            nombre=itemView.findViewById(R.id.nametext);
+            Img = itemView.findViewById(R.id.imgM);
+            nombre = itemView.findViewById(R.id.nametext);
 
             //tipo=itemView.findViewById(R.id.tipotext);
             //edad=itemView.findViewById(R.id.edadtext);
 
-            btndetalle=itemView.findViewById(R.id.btnver);
-            btnDelete=itemView.findViewById(R.id.btnDelete);
-            btnEdit=itemView.findViewById(R.id.btnEdit);
+            btndetalle = itemView.findViewById(R.id.btnver);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
+            btnEdit = itemView.findViewById(R.id.btnEdit);
         }
 
 

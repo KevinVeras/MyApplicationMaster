@@ -6,7 +6,7 @@ public class ModelDispensador {
     String CantidadAgua,CantidadComida;
     String Automatico,Programable;
 
-    ModelDispensador() {
+    public ModelDispensador() {
     }
 
     public ModelDispensador(String horario1, String horario2, String horario3,

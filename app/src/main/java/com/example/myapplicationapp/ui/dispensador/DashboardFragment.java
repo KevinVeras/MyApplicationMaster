@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.example.myapplicationapp.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 
@@ -23,21 +25,26 @@ public class DashboardFragment extends Fragment {
     MainAdapterHorario mainAdapter;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        vista=inflater.inflate(R.layout.fragment_dashboard, container, false);
+        vista = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        recyclerView =vista.findViewById(R.id.listDispen);
+        recyclerView = vista.findViewById(R.id.listDispen);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+
+        assert user != null;
         FirebaseRecyclerOptions<ModelDispensador> options =
                 new FirebaseRecyclerOptions.Builder<ModelDispensador>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("dispensador"), ModelDispensador.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("dispensador").child(user.getUid()), ModelDispensador.class)
                         .build();
-        mainAdapter=new MainAdapterHorario(options);
+
+        mainAdapter = new MainAdapterHorario(options);
         recyclerView.setAdapter(mainAdapter);
 
         return vista;
@@ -48,6 +55,7 @@ public class DashboardFragment extends Fragment {
         super.onStart();
         mainAdapter.startListening();
     }
+
     @Override
     public void onStop() {
         super.onStop();
